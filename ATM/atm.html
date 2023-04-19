@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM UYGULAMASI</title>
+    <!--SAYFANIN ÜST KISMINA ATM UYGULAMASI YAZISINI EKLER -->
+</head>
+<body>
+    
+    <script>
+        let satır = "\r\n";
+        //kodu bir alt satıra geçirir
+        let bakiye = Number(prompt("bakiye giriniz"));
+        //kullanıcıdan bakiye ister
+        let işlemler = 
+        "1- Bakiye sorgu" + satır+
+        "2- para çekme"+satır+
+        "3-para yatırma"+satır+
+        "4-Çıkış"
+        let sonuc = prompt(işlemler);
+        //prompt da seçtiğimiz işlemi sonuc değişkenine atar
+        switch(sonuc){
+            case "1":
+                alert("bakiyeniz : "+ bakiye)
+            break;  
+            //1. işlemi seçerseniz 1. switch case çalışacaktır ve bakiyenizi gösterecektir
+
+            case "2":
+                let çekilecek=Number(prompt("çekilecek parayı giriniz"));
+                //çekilecek para girilir
+                let sonucc = bakiye - çekilecek;
+                //sonucc diye bir değişken açarak bakiyenizden çekmek istediğiniz parayı sonucc değişkenine atarsınız
+                 
+                if(bakiye > çekilecek){
+                    alert("bakiye çekilmiştir kalan : TL"+sonucc)
+                    //eğer bakiyeniz çekilebilecek seviyede ise para çekilir ve kalan para sonucc değişkeni ile gösterilir
+                }  
+                else if ( bakiye < çekilecek){
+                    alert("lütfen bakiyeniz kadar değer çekiniz güncel bakiyeniz : TL"+bakiye);
+                    //eğer para çekilemez ise yani bakiyeniz çekmek istediğiniz tutardan az ise para çekemezsiniz ve güncel bakiyeniz gösterilir
+                }
+                else
+                {
+                    alert("lütfen doğru değer giriniz");
+                    //eğer istenilenden farklı bir değer girerseniz sizi uyarır ve doğru değer girmenizi söyler
+                }
+                break;
+                 
+            case "3":
+                let yatır = Number(prompt("yatırılacak değeri giriniz"));
+                //yatırılacak para girilir 
+                let sonuccc = bakiye + yatır;
+                //sonuccc değişkeni ile bakiyeniz + yatırılan para toplanır ve sonuccc değişkenine atılır
+                alert("Yatırılmıştır bakiyeniz mevcut bakiyeniz : TL"+sonuccc);
+                break;
+                
+            case "4":
+                alert("uygulamadan çıkış yapılıyor...");
+                break;
+                //4. sayıyı seçerseniz uygulamayı kapatır 
+
+            default:
+                alert("lütfen geçerli bir işlem giriniz");
+                //eğer 1 ile 4 arasında bir değer girilmez ise prompt'a default çalışarak sizi uyarır
+            break;
+        }
+    </script>
+</body>
+</html>
